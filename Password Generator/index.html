@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <h2 id="genHeader">Generate a <br><span id="genFlavor">random password</span></h2>
@@ -12,13 +15,13 @@
     <div id="generatorContainer">
         <button id="generateButton">Generate Passwords</button>
     </div>
-    <hr>
-    <div class="passwordContainer">
+    <hr id="divider">
+    <div id="passwordContainer">
         <div class="passwordBox">
-            <p class="passwordText" id="password1">x</p>
+            <p class="passwordText" id="password1"></p>
         </div>
         <div class="passwordBox">
-            <p class="passwordText" id="password2">x</p>
+            <p class="passwordText" id="password2"></p>
         </div>
     <script src="index.js"></script>
 </body>

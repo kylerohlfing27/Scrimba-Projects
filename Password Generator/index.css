@@ -7,4 +7,62 @@
 
 body {
     background-color: #1F2937;
+    margin: 40px;
+    font-family: "Karla", sans-serif;
+    width: 550px;
+}
+
+#genHeader {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+#genFlavor {
+    color: #4ADF86;
+}
+
+#genSubHeader {
+    font-size: 1.2rem;
+    margin: 10px 0 50px 0;
+    color: #D1D5DB
+}
+
+#generateButton {
+    background-color: #10B981;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#generateButton:hover {
+    background-color: rgb(59, 192, 97);
+}
+
+#divider {
+    border-color: #273549;
+    border-style: solid;
+}
+
+#passwordContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.passwordBox {
+    height: 40px;
+    width: 250px;
+    background-color: #374151;
+    color: #55F991;
+    border-radius: 5px;
+    text-align: center;
 }
