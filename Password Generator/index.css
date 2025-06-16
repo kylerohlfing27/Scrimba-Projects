@@ -65,4 +65,7 @@ body {
     color: #55F991;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
