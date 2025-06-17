@@ -19,3 +19,22 @@ function generatePasswords() {
     document.getElementById("password1").textContent = password1;
     document.getElementById("password2").textContent = password2;
 }
+
+function copyPassword(passwordNumber) {
+    const passwordText = document.getElementById(`password${passwordNumber}`).textContent;
+    navigator.clipboard.writeText(passwordText)
+        .then(() => {
+            alert(`Password ${passwordNumber} copied to clipboard!`);
+        })
+        .catch(err => {
+            console.error('Failed to copy: ', err);
+            alert('Failed to copy password. Please try again.');
+        });
+}
+
+function updateLengthValue() {
+    const lengthValue = document.getElementById("lengthValue");
+    const lengthSlider = document.getElementById("lengthSlider");
+    lengthValue.textContent = lengthSlider.value;
+    generatePasswords();
+}

@@ -26,7 +26,7 @@ body {
 
 #genSubHeader {
     font-size: 1.2rem;
-    margin: 10px 0 50px 0;
+    margin: 10px 0 30px 0;
     color: #D1D5DB
 }
 
@@ -68,4 +68,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#sliderContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#lengthLabel {
+    color: #D1D5DB;
+    margin-bottom: 5px;
+}
+
+#lengthSlider {
+    accent-color: #10B981;
 }
