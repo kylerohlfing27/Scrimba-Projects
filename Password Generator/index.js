@@ -10,6 +10,13 @@ function generatePasswords(passwordLength) {
     let password1 = "";
     let password2 = "";
 
+    console.log("Generating passwords with length: " + passwordLength);
+
+    if (!passwordLength){
+        passwordLength = document.getElementById("lengthSlider").value;
+        console.log(passwordLength);
+    }
+
     for (let i = 0; i < passwordLength; i++) {
         const randomIndex1 = Math.floor(Math.random() * characters.length);
         const randomIndex2 = Math.floor(Math.random() * characters.length);
