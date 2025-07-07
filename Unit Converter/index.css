@@ -72,6 +72,13 @@ input::-webkit-inner-spin-button {
     text-align: center;
     background-color: white;
     margin-bottom: 20px;
+    max-width: 600px;
+    border-radius: 7px;
+    color: #1F2937;
+}
+
+.conversion-title {
+    color: #111827;
 }
 
 .conversion-divider {
