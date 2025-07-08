@@ -25,11 +25,42 @@ const imperialKilogramsValue = document.getElementById("imperial-kilograms-value
 const metricKilogramsValue = document.getElementById("metric-kilograms-value");
 const metricPoundsValue = document.getElementById("metric-pounds-value");
 
-let numInputValue = +inputValue.value;
+inputValue.addEventListener("keypress", function(event){
+    if(event.key === "Enter") {
+        event.preventDefault();
+        renderConversions();
+    }
+})
 
 function renderConversions() {
+    console.log(`Input Value: ${+inputValue.value}`);
+    let numInputValue = +inputValue.value;
+
+    // Convert Feet To Meters
     imperialFeetValue.textContent = numInputValue.toFixed(2);
     imperialMetersValue.textContent = convertFeetToMeters(numInputValue).toFixed(2);
+
+    // Convert Meters To Feet
+    metricMetersValue.textContent = numInputValue.toFixed(2);
+    metricFeetValue.textContent = convertMetersToFeet(numInputValue).toFixed(2);
+
+    // Convert Gallons To Liters
+    imperialGallonsValue.textContent = numInputValue.toFixed(2);
+    imperialLitersValue.textContent = convertGallonsToLiters(numInputValue).toFixed(2);
+
+    // Convert Liters To Gallons
+    metricLitersValue.textContent = numInputValue.toFixed(2);
+    metricGallonsValue.textContent = convertLitersToGallons(numInputValue).toFixed(2);
+
+    // Convert Pounds To Kilograms
+    imperialPoundsValue.textContent = numInputValue.toFixed(2);
+    imperialKilogramsValue.textContent = convertPoundsToKilograms(numInputValue).toFixed(2);
+
+    // Convert Kilograms To Pounds
+    metricKilogramsValue.textContent = numInputValue.toFixed(2);
+    metricPoundsValue.textContent = convertKilogramsToPounds(numInputValue).toFixed(2);
+
+    console.log("Conversions Rendered");
 }
 
 function convertFeetToMeters(inputValue) {
@@ -41,11 +72,11 @@ function convertMetersToFeet(inputValue) {
 }
 
 function convertGallonsToLiters(inputValue) {
-    return inputValue * 0.264172;
+    return inputValue / 0.264172;
 }
 
 function convertLitersToGallons(inputValue) {
-    return inputValue / 0.264172;
+    return inputValue * 0.264172;
 }
 
 function convertPoundsToKilograms(inputValue) {
