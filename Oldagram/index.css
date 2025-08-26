@@ -3,5 +3,12 @@ body {
     margin: 0 auto;
     width: 500px;
     height: 900px;
-    border: 1px solid black
+    border: 1px solid black;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.headerLogo {
+    font-family: 'Style Script', cursive;
+    font-size: 48px;
+    padding-left: 20px;
 }
