@@ -1,7 +1,7 @@
 body {
     margin: 0 auto;
-    width: 500px;
-    height: 900px;
+    width: 375px;
+    /* height: 900px; */
     border: 1px solid black;
     font-family: 'Source Sans 3', sans-serif;
 }
@@ -12,8 +12,8 @@ body {
 }
 
 .profilePic {
-    width: 48px;
-    height: 48px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -32,4 +32,35 @@ body {
 
 .postHeader {
     display: flex;
+    align-items: center;
+    margin: 0 0 5px 15px;
+    padding-top: 5px;
+}
+
+.postUsername, .postLocation {
+    margin: 0;
+}
+
+.postUsername, .postLikes, .postCaption {
+    font-size: 13px;
+}
+
+.postLocation {
+    font-size: 12px;
+}
+
+.postImage {
+    width: 100%;
+}
+
+.postFooter {
+    margin-top: 10px;
+}
+
+.postLikes {
+    margin-bottom: 5px;
+}
+
+.postCaption {
+    margin-top: 0;
 }
