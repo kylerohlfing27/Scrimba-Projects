@@ -1,13 +1,11 @@
 body {
     margin: 0 auto;
     width: 375px;
-    /* height: 900px; */
-    border: 1px solid black;
     font-family: 'Source Sans 3', sans-serif;
 }
 
 .headerLogo {
-    height: 80px;
+    width: 127px;
     padding-left: 15px;
 }
 
@@ -63,4 +61,36 @@ body {
 
 .postCaption {
     margin-top: 0;
+}
+
+.likeButton, .commentButton, .shareButton {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.likeButton {
+    background-image: url('images/icon-heart.png');
+}
+
+.commentButton {
+    background-image: url('images/icon-comment.png');
+}
+
+.shareButton {
+    background-image: url('images/icon-dm.png');
+}
+
+.postActions {
+    padding-left: 5px;
+}
+
+.postDivider {
+    height: 20px;
+    background-color: #E6E8E6;
+    width: 100%;
 }
