@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Ordering App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poller+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Kyle's Diner</h1>
-    <p>The best bites in town.</p>
-    <div id="menu">
-        <!-- Menu items will be dynamically generated here -->
+    <div class="header poller-one-regular">
+        <h1 class="headerTitle">Kyle's Diner</h1>
+        <p class="headerSubTitle">The best bites in town.</p>
     </div>
-    <button id="orderButton">Place Order</button>
+    <div class="menu">
+        <!-- Menu items will be dynamically generated here -->
+        <div class="menuItem">
+            <p class="menuEmoji">🍕</p>
+            <div class="menuItemDetails">
+                <h2 class="menuItemName">Pizza</h2>
+                <p class="menuItemIngredients">pepperoni, mushroom, mozarella</p>
+                <p class="menuItemPrice">$14</p>
+            </div>
+            <button class="addToOrderButton">+</button>
+        </div>
+    </div>
+    <!-- <button id="orderButton">Place Order</button> -->
     <script type="module" src="index.js"></script>
 </body>
 </html>
