@@ -3,3 +3,9 @@
 // Kyle's Diner - Scrimba Project
 
 import menuArray from "./menuItems.js";
+
+function renderMenu() {
+
+}
+
+// HTML
