@@ -15,20 +15,24 @@
         <p class="headerSubTitle">The best bites in town.</p>
     </div>
     <div class="menu" id="menuContainer">
-        <!-- Menu items will be dynamically generated here -->
-
-        <!-- <div class="menuItem roboto">
-            <p class="menuEmoji">EMOJI</p>
-            <div class="menuItemDetails">
-                <h2 class="menuItemName">NAME</h2>
-                <p class="menuItemIngredients">INGREDIENTS</p>
-                <p class="menuItemPrice">PRICE</p>
-            </div>
-            <button class="addToOrderButton">+</button>
-        </div> -->
+        <!-- Menu items dynamically generated here -->
+    </div>
+    <div class="cart">
+        <h2 class="cartTitle">Your Order</h2>
+        <div class="cartItems" id="cartItemsContainer">
+            <!-- Cart items dynamically generated here -->
+             <ul class="itemList" id="itemList">
+                <li class="cartItem">Burger <button class="removeItemBtn">Remove</button> <span class="itemPrice">$5.99</span></li>
+                <li class="cartItem">Fries <button class="removeItemBtn">Remove</button> <span class="itemPrice">$2.99</span></li>
+            </ul>
+        </div>
+        <div class="cartTotal" id="cartTotalContainer">
+            <!-- Order Total displayed here -->
+             <h3 class="totalText">Total Price: <span class="totalAmount" id="totalAmount">$8.98</span></h3>
+        </div>
+        <button class="completeOrderBtn" id="completeOrderBtn">Complete Order</button>
 
     </div>
-    <!-- <button id="orderButton">Place Order</button> -->
     <script type="module" src="index.js"></script>
 </body>
 </html>
