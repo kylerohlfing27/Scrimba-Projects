@@ -17,7 +17,6 @@ menuContainer.addEventListener("click", function(e) {
 });
 
 cartContainer.addEventListener("click", function(e) {
-    console.log(e.target.parentElement);
     if (e.target.classList.contains("removeItemBtn")) {
         let removedItem = orderArray.filter(function(item) {
             return item.id == e.target.id
@@ -54,7 +53,7 @@ function addToOrder(orderedItem) {
 }
 
 function removeFromOrder(removedItem) {
-    console.log(removedItem);
+    // console.log(removedItem);
 }
 
 function renderCart() {
