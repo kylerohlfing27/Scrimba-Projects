@@ -5,6 +5,26 @@
 import { menuArray } from "./menuItems.js";
 
 const menuContainer = document.getElementById("menuContainer");
+const cartContainer = document.getElementById("cartContainer");
+
+let orderArray = [];
+
+menuContainer.addEventListener("click", function(e) {
+    let orderedItem = menuArray.filter(function(item) {
+        return item.id == e.target.id
+        })[0];
+    addToOrder(orderedItem);
+});
+
+cartContainer.addEventListener("click", function(e) {
+    console.log(e.target.parentElement);
+    if (e.target.classList.contains("removeItemBtn")) {
+        let removedItem = orderArray.filter(function(item) {
+            return item.id == e.target.id
+        })[0];
+        removeFromOrder(removedItem);
+    }
+});
 
 function renderMenu() {
     let menuHtml = ``;
@@ -23,9 +43,30 @@ function getMenuItemHtml(menuItem) {
             <p class="menuItemIngredients">${menuItem.ingredients.join(", ")}</p>
             <p class="menuItemPrice">$${menuItem.price}</p>
         </div>
-        <button class="addToOrderButton">+</button>
+        <button class="addToOrderButton" id="${menuItem.id}">+</button>
     </div>
     `;
+}
+
+function addToOrder(orderedItem) {
+    orderArray.push(orderedItem);
+    renderCart();
+}
+
+function removeFromOrder(removedItem) {
+    console.log(removedItem);
+}
+
+function renderCart() {
+    let orderItemsHtml = `<ul class="itemList" id="itemList">`;
+    orderArray.forEach(item => {
+        orderItemsHtml += `
+            <li class="cartItem">${item.name}<button class="removeItemBtn">Remove</button> <span class="itemPrice">$${item.price}</span></li>
+        `;
+    });
+    orderItemsHtml += `</ul>`;
+    document.getElementById("cartItemsContainer").innerHTML = orderItemsHtml;
+    cartContainer.style.display = "block";
 }
 
 renderMenu();

@@ -87,7 +87,8 @@
  }
 
 .cart {
-   padding-bottom: 50px;
+   padding: 0 50px 20px 50px;
+   display: none;
 }
 
  .cartTitle {
