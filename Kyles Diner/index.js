@@ -20,9 +20,7 @@ menuContainer.addEventListener("click", function(e) {
 
 cartContainer.addEventListener("click", function(e) {
     if (e.target.classList.contains("removeItemBtn")) {
-        // need to get index of item to remove
-        // pop that element from orderArray
-        console.log(e.target)
+        removeFromOrder(e.target.dataset.cartId)
     }
 });
 
@@ -53,8 +51,9 @@ function addToOrder(orderedItem) {
     renderCart();
 }
 
-function removeFromOrder(removedItem) {
-    // console.log(removedItem);
+function removeFromOrder(removedIndex) {
+    orderArray.splice(removedIndex, 1);
+    renderCart();
 }
 
 function renderCart() {
