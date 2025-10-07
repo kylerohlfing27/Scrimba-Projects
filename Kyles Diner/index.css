@@ -12,6 +12,10 @@
    font-style: normal;
  }
 
+ .hidden {
+    display: none;
+ }
+
  .poller-one-regular {
   font-family: "Poller One", sans-serif;
   font-weight: 400;
@@ -87,7 +91,7 @@
  }
 
 .cart {
-   padding-bottom: 50px;
+   padding: 0 50px 20px 50px;
 }
 
  .cartTitle {
@@ -148,4 +152,77 @@
    border-radius: 5px;
    font-size: 1rem;
    font-weight: 600;
+   cursor: pointer;
+ }
+
+ .completeOrderBtn:hover {
+   background-color: #12b97c;
+ }
+
+ .completeOrderModal {
+  width: 450px;
+  height: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 5px 5px 60px 60px rgba(0,0,0,0.27);
+  border-radius: 5px;
+  z-index: 10;
+  padding: 20px;
+  text-align: center;
+ }
+
+ .completeOrderForm {
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+ }
+
+ .formInputContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   margin-bottom: 65px;
+ }
+
+ .formInput {
+   height: 40px;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+   padding-left: 10px;
+   font-size: 1rem;
+ }
+
+ .thankYouContainer {
+    text-align: center;
+    background-color: #7cf0ba;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+ }
+
+ .thankYouMessage {
+    color: #065F46;
+    font-size: 1.75rem;
+    font-weight: 500;
+ }  
+
+ .startNewOrderBtn {
+   margin-bottom: 30px;
+   color: white;
+   background-color: #11815c;
+   border: none;
+   border-radius: 5px;
+   font-size: 1rem;
+   font-weight: 600;
+   cursor: pointer;
+   padding: 5px 20px;
+ }
+
+ .startNewOrderBtn:hover {
+   background-color: #0e6e4f;
  }
