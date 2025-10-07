@@ -8,21 +8,51 @@ const menuContainer = document.getElementById("menuContainer");
 const cartContainer = document.getElementById("cartContainer");
 const cartItemsContainer = document.getElementById("cartItemsContainer");
 const cartTotalAmount = document.getElementById("totalAmount");
+const completeOrderBtn = document.getElementById("completeOrderBtn");
+const completeOrderModal = document.getElementById("completeOrderModal");
+const completeOrderForm = document.getElementById("completeOrderForm");
 
 let orderArray = [];
 
 menuContainer.addEventListener("click", function(e) {
-    let orderedItem = menuArray.filter(function(item) {
+    if(e.target.classList.contains("addToOrderButton")) {
+        let orderedItem = menuArray.filter(function(item) {
         return item.id == e.target.id
         })[0];
-    addToOrder(orderedItem);
+        console.log(orderedItem)
+        addToOrder(orderedItem);
+    }
 });
 
 cartContainer.addEventListener("click", function(e) {
     if (e.target.classList.contains("removeItemBtn")) {
         removeFromOrder(e.target.dataset.cartId)
     }
+    if (e.target.classList.contains("startNewOrderBtn")) {
+        cartContainer.innerHTML = ``;
+        startNewOrder();
+    }
 });
+
+completeOrderBtn.addEventListener("click", function() {
+    completeOrderModal.classList.remove("hidden");
+});
+
+completeOrderForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById("nameInput").value;
+    completeOrderModal.classList.add("hidden");
+    orderArray = [];
+    renderCart();
+    cartContainer.innerHTML = `<div class="thankYouContainer"><h2 class="thankYouMessage">Thanks, ${nameInput}! Your order is on its way!</h2></div>`; //<button class="startNewOrderBtn">Start New Order</button> **FOR LATER**
+    cartContainer.classList.remove("hidden");
+});
+
+function startNewOrder() {
+    orderArray = [];
+    cartContainer.classList.add("hidden");
+    renderMenu();
+};
 
 function renderMenu() {
     let menuHtml = ``;

@@ -27,14 +27,22 @@
             <!-- Cart items dynamically generated here -->
         </div>
         <div class="cartTotal" id="cartTotalContainer">
-             <h3 class="totalText">Total Price: <span class="totalAmount" id="totalAmount">$8.98</span></h3>
+             <h3 class="totalText">Total Price: <span class="totalAmount" id="totalAmount"></span></h3>
         </div>
         <button class="completeOrderBtn" id="completeOrderBtn">Complete Order</button>
     </div>
 
         <!-- COMPLETE ORDER -->
-    <div class="completeOrderModal hidden">
-
+    <div class="completeOrderModal hidden" id="completeOrderModal">
+        <h2 class="completeOrderTitle">Enter Card Details</h2>
+        <form class="completeOrderForm" id="completeOrderForm">
+            <div class="formInputContainer">
+                <input type="text" class="formInput" id="nameInput" placeholder="Enter your name" required>
+                <input type="text" class="formInput" id="cardInput" placeholder="Enter card number" required>
+                <input type="text" class="formInput" id="cvvInput" placeholder="Enter CVV" required>
+            </div>
+            <button type="submit" class="completeOrderBtn" id="payBtn">Pay</button>
+        </form>
     </div>
 
     <script type="module" src="index.js"></script>
