@@ -6,6 +6,8 @@ import { menuArray } from "./menuItems.js";
 
 const menuContainer = document.getElementById("menuContainer");
 const cartContainer = document.getElementById("cartContainer");
+const cartItemsContainer = document.getElementById("cartItemsContainer");
+const cartTotalAmount = document.getElementById("totalAmount");
 
 let orderArray = [];
 
@@ -18,10 +20,9 @@ menuContainer.addEventListener("click", function(e) {
 
 cartContainer.addEventListener("click", function(e) {
     if (e.target.classList.contains("removeItemBtn")) {
-        let removedItem = orderArray.filter(function(item) {
-            return item.id == e.target.id
-        })[0];
-        removeFromOrder(removedItem);
+        // need to get index of item to remove
+        // pop that element from orderArray
+        console.log(e.target)
     }
 });
 
@@ -57,15 +58,24 @@ function removeFromOrder(removedItem) {
 }
 
 function renderCart() {
-    let orderItemsHtml = `<ul class="itemList" id="itemList">`;
-    orderArray.forEach(item => {
-        orderItemsHtml += `
-            <li class="cartItem">${item.name}<button class="removeItemBtn">Remove</button> <span class="itemPrice">$${item.price}</span></li>
-        `;
-    });
-    orderItemsHtml += `</ul>`;
-    document.getElementById("cartItemsContainer").innerHTML = orderItemsHtml;
-    cartContainer.style.display = "block";
+    let totalPrice = 0;
+    let orderItemsHtml = ``;
+    
+    if(orderArray.length != 0){
+        cartContainer.style.display = "block";
+        orderItemsHtml = `<ul class="itemList" id="itemList">`;
+        orderArray.forEach((item, index) => {
+            orderItemsHtml += `
+                <li class="cartItem">${item.name}<button class="removeItemBtn" data-cart-id="${index}">Remove</button> <span class="itemPrice">$${item.price}</span></li>
+            `;
+            totalPrice += item.price;
+        });
+        orderItemsHtml += `</ul>`;
+        cartItemsContainer.innerHTML = orderItemsHtml;
+        cartTotalAmount.innerHTML = `$${totalPrice}`;
+    } else {
+        cartContainer.style.display = "none";
+    }
 }
 
 renderMenu();
