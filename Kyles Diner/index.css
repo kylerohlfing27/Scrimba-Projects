@@ -12,6 +12,10 @@
    font-style: normal;
  }
 
+ .hidden {
+    display: none;
+ }
+
  .poller-one-regular {
   font-family: "Poller One", sans-serif;
   font-weight: 400;
@@ -88,7 +92,6 @@
 
 .cart {
    padding: 0 50px 20px 50px;
-   display: none;
 }
 
  .cartTitle {

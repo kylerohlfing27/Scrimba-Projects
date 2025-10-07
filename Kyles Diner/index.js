@@ -61,7 +61,7 @@ function renderCart() {
     let orderItemsHtml = ``;
     
     if(orderArray.length != 0){
-        cartContainer.style.display = "block";
+        cartContainer.classList.remove("hidden");
         orderItemsHtml = `<ul class="itemList" id="itemList">`;
         orderArray.forEach((item, index) => {
             orderItemsHtml += `
@@ -73,7 +73,7 @@ function renderCart() {
         cartItemsContainer.innerHTML = orderItemsHtml;
         cartTotalAmount.innerHTML = `$${totalPrice}`;
     } else {
-        cartContainer.style.display = "none";
+        cartContainer.classList.add("hidden");
     }
 }
 

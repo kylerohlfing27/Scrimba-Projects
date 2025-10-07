@@ -14,21 +14,29 @@
         <h1 class="headerTitle">Kyle's Diner</h1>
         <p class="headerSubTitle">The best bites in town.</p>
     </div>
+
+        <!-- MENU -->
     <div class="menu" id="menuContainer">
         <!-- Menu items dynamically generated here -->
     </div>
-    <div class="cart" id="cartContainer">
+
+        <!-- CART -->
+    <div class="cart hidden" id="cartContainer">
         <h2 class="cartTitle">Your Order</h2>
         <div class="cartItems" id="cartItemsContainer">
             <!-- Cart items dynamically generated here -->
         </div>
         <div class="cartTotal" id="cartTotalContainer">
-            <!-- Order Total displayed here -->
              <h3 class="totalText">Total Price: <span class="totalAmount" id="totalAmount">$8.98</span></h3>
         </div>
         <button class="completeOrderBtn" id="completeOrderBtn">Complete Order</button>
+    </div>
+
+        <!-- COMPLETE ORDER -->
+    <div class="completeOrderModal hidden">
 
     </div>
+
     <script type="module" src="index.js"></script>
 </body>
 </html>
