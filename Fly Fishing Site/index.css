@@ -88,7 +88,7 @@ a:active {
 header, 
 section, 
 footer {
-    padding: 1.25em 0;
+    padding: 1em 0;
 }
 
 header, 
@@ -106,12 +106,6 @@ header,
     margin: 0 auto;
 }
 
-.catch-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
 .catch-image {
     width: 48%;
     display: block;
@@ -119,24 +113,25 @@ header,
     margin: 0 auto 2em;
 }
 
-.section-two-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+.fish-image-container {
+    margin-bottom: 1.5rem;
 }
 
-.feature-image {
-    width: 100%;
-    border-radius: 4.6px;
-}
-
-.feature-item {
+.grid-image {
+    width: 30%;
     flex: 1 260px;
 }
 
 footer {
     text-align: center;
     color: #92AC86;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 /* ----- NAVIGATION ----- */
