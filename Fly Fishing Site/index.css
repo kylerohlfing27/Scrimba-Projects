@@ -2,6 +2,7 @@ body {
     color: #000505;
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    text-align: center;
 }
 
 /* ----- TYPOGRAPHY ----- */
@@ -105,8 +106,14 @@ header,
     margin: 0 auto;
 }
 
-.main-image {
-    width: 100%;
+.catch-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.catch-image {
+    width: 48%;
     display: block;
     max-width: 640px;
     margin: 0 auto 2em;
@@ -146,6 +153,10 @@ ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
+}
+
+img {
+    border-radius: 5px;
 }
 
 /* ----- MEDIA QUERIES ----- */
