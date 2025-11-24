@@ -9,10 +9,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Color Scheme Generator</title>
 	<link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 	<main id="app">
-		<!-- app content goes here -->
+		<header>
+            <input type = "color" id="color-picker" class="color-picker" value="#57cc99"/>
+            <select id="scheme-type" class="scheme-type">
+                <option value="monochrome">Monochrome</option>
+                <option value="monochrome-dark">Monochrome Dark</option>
+                <option value="monochrome-light">Monochrome Light</option>
+                <option value="analogic">Analogic</option>
+                <option value="complement">Complement</option>
+                <option value="analogic-complement">Analogic Complement</option>
+                <option value="triad">Triad</option>
+                <option value="quad">Quad</option>
+            </select>
+            <button id="get-scheme" class="get-scheme">Get Color Scheme</button>
+        </header>
+        <section id="color-scheme" class="color-scheme">
+            <div id="color-1" class="color-block">
+                1
+                <!-- Color 1 -->
+            </div>
+            <div id="color-2" class="color-block">
+                2
+                <!-- Color 2 -->
+            </div>
+            <div id="color-3" class="color-block">
+                3
+                <!-- Color 3 -->
+            </div>
+            <div id="color-4" class="color-block">
+                4
+                <!-- Color 4 -->
+            </div>
+            <div id="color-5" class="color-block">
+                5
+                <!-- Color 5 -->
+            </div>
+            <div class="hex-codes">
+                <p id="hex-1" class="hex-code">Hex 1</p>
+                <p id="hex-2" class="hex-code">Hex 2</p>
+                <p id="hex-3" class="hex-code">Hex 3</p>
+                <p id="hex-4" class="hex-code">Hex 4</p>
+                <p id="hex-5" class="hex-code">Hex 5</p>
+            </div>
+        </section>
 	</main>
 
 	<script src="scripts.js" defer></script>
