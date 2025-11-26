@@ -18,16 +18,13 @@ let format = 'json'
 let mode = schemeType.value
 let count = 5
 
-function getColorScheme() {
-    
-}
-
 fetch(`${baseUrl}${endpoint}?hex=${colorHex}&format=${format}&mode=${mode}&count=${count}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         renderColorScheme(data.colors)
     })
+
+// Functions
 
 function renderColorScheme(colorsArray) {
     colorsArray.forEach((colorObj, index) => {
@@ -40,11 +37,16 @@ function renderColorScheme(colorsArray) {
     })
 }
 
-// function getColorScheme(hexValue, schemeType) {
-// }
+function getNewColorScheme() {
+    fetch(`${baseUrl}${endpoint}?hex=${colorPicker.value.substring(1)}&format=${format}&mode=${schemeType.value}&count=${count}`)
+        .then(response => response.json())
+        .then(data => {
+            renderColorScheme(data.colors)
+        })
+}
 
 // Event Listeners
 
 getSchemeBtn.addEventListener('click', () => {
-    getColorScheme(colorPicker.value.substring(1), schemeType.value)
+    getNewColorScheme()
 })
