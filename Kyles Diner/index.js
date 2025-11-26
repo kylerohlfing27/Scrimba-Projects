@@ -5,6 +5,10 @@
 import { menuArray } from "./menuItems.js";
 
 const menuContainer = document.getElementById("menuContainer");
+const addToOrderBtn = document.querySelector(".addToOrderButton");
+
+
+// Render Items to the Page
 
 function renderMenu() {
     let menuHtml = ``;
@@ -29,3 +33,10 @@ function getMenuItemHtml(menuItem) {
 }
 
 renderMenu();
+
+// Event Listener for Add to Order Buttons
+
+addToOrderBtn.addEventListener("click", function(e) {
+    console.log("Add to Order button clicked");
+    console.loglog(e);
+});
