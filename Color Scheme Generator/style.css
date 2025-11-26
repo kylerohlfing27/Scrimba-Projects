@@ -61,7 +61,8 @@ header {
 }
 
 .color-block-container {
-    height: 60vh;
+    height: 84vh;
+    /* Might need to play around with the height on different screens */
 }
 
 .hex-codes {
@@ -71,5 +72,12 @@ header {
 
 .color-block, .hex-code {
     text-align: center;
-    border: 1px solid black;
+}
+
+.color-block {
+    border: none;
+}
+
+.hex-code {
+    margin: 0;
 }
