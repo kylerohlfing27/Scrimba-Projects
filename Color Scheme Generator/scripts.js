@@ -4,7 +4,7 @@
 
 const colorPicker = document.getElementById('color-picker')
 const schemeType = document.getElementById('scheme-type')
-const getSchemeBtn = document.getElementById('get-scheme-btn')
+const getSchemeBtn = document.getElementById('get-scheme')
 const colorBlock1 = document.getElementById('color-1')
 const colorBlock2 = document.getElementById('color-2')
 const colorBlock3 = document.getElementById('color-3')
@@ -17,6 +17,10 @@ let colorHex = colorPicker.value.substring(1) // Remove the '#' character
 let format = 'json'
 let mode = schemeType.value
 let count = 5
+
+function getColorScheme() {
+    
+}
 
 fetch(`${baseUrl}${endpoint}?hex=${colorHex}&format=${format}&mode=${mode}&count=${count}`)
     .then(response => response.json())
@@ -35,3 +39,12 @@ function renderColorScheme(colorsArray) {
         hexCodeDisplay.innerHTML = `<p>${colorObj.hex.value}</p>`
     })
 }
+
+// function getColorScheme(hexValue, schemeType) {
+// }
+
+// Event Listeners
+
+getSchemeBtn.addEventListener('click', () => {
+    getColorScheme(colorPicker.value.substring(1), schemeType.value)
+})
