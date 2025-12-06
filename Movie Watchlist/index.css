@@ -99,8 +99,40 @@ header button {
     margin-bottom: 50px;
 }
 
-#landing-message {
+.landing-message, .watchlist-landing-message {
     font-size: 1.5rem;
     color: #2E2E2F;
+    font-weight: 600;
+}
+
+.landing-message {
     margin-top: 10em;
+}
+
+/* WATCHLIST PAGE */
+
+.watchlist-landing-message {
+    margin-top: 15em;
+    color: #787878;
+}
+
+.sub-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.sub-message-icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.sub-message-text {
+    display: inline;
+    font-size: 1rem;
+    vertical-align: middle;
+    font-weight: 600;
 }
