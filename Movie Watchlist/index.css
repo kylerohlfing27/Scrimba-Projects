@@ -1,10 +1,14 @@
-/* index.css */
+/*
+    Kyle Rohlfing
+    12/2025
+    Movie Watchlist Stylesheet
+*/
 
 /* SELECTORS */
 
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 body {
@@ -24,13 +28,14 @@ body {
     display: block;
     position: fixed;
     top: 0;
+    z-index: -1;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 250px;
+    height: 225px;
     padding: 0 50px;
 }
 
@@ -53,5 +58,38 @@ header button {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 0 50px;
+    text-align: center;
 }
+
+#search-input {
+    width: 60%;
+    max-height: 50px;
+    padding: 17px 15px 15px 40px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    background-image: url('img/mag.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-color: #2E2E2F;
+    color: #A5A5A5;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#search-btn {
+    width: 20%;
+    height: 50px;
+    padding: 17px 0 15px 0;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #4B4B4B;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#search-input:focus, #search-btn:focus {
+    outline: none;
+}
+
