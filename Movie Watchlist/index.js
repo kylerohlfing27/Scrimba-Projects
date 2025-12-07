@@ -3,7 +3,89 @@
 // Movie Watchlist Scripts - index
 
 const myWatchlistBtn = document.getElementById('my-watchlist-btn')
+const searchInput = document.getElementById('search-input')
+const searchBtn = document.getElementById('search-btn')
+const moviesContainer = document.getElementById('movies-container')
+const landingMessage = document.getElementById('landing-message')
+
+const apiBase = 'https://api.themoviedb.org/3/search/movie?'
+const readAccessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Y2RhZTM3NWI1YjEyODMzMTJlYmZlZDg4NzllZTEwMSIsIm5iZiI6MTc2NTE0MzgzNC4zNiwic3ViIjoiNjkzNWY1MWE5ZDE4YTM2NTczMTdiM2M1Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.Vs_ugUgG7TcIve79ZW4uTSnQTXpso_IY7xKC4U1txZQ`
+const imgApiBase = 'https://image.tmdb.org/t/p/w500'
+const movieDetailsApiBase = 'https://api.themoviedb.org/3/movie/'
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${readAccessToken}`
+  }
+};
+const additionalParams = '&language=en-US&page=1&include_adult=false'
 
 myWatchlistBtn.addEventListener('click', function() {
     window.location.href = 'watchlist.html'
 })
+
+searchBtn.addEventListener('click', searchFn)
+
+
+async function searchFn() {
+    const query = searchInput.value.trim()
+    if (!query) return
+
+    const response = await fetch(`${apiBase}query=${encodeURIComponent(query)}${additionalParams}`, options)
+    const data = await response.json()
+
+    console.log(data.results)
+
+    renderMovies(data.results)
+}
+
+function renderMovies(movies) {
+    if(movies.length === 0) {
+        landingMessage.innerHTML = `<p class="light-color">Unable to find what you’re looking for. Please try another search.</p>`
+        return
+    }
+    let moviesContainerHTML = movies.map(movie => generateMovieCard(movie)).join('')
+
+    moviesContainer.innerHTML = moviesContainerHTML
+}
+
+function generateMovieCard(movie) {
+    // let movieDetails = retrieveMovieDetails(movie.id)
+    // console.log(movieDetails)
+    if(!movie.overview) {
+        movie.overview = "No overview available."
+    }
+    // let movieRuntime = retrieveMovieRuntime(movie.id)
+    // movie.runtime = movieRuntime ? movieRuntime : "N/A"
+    // let movieGenres = retrieveMovieGenres(movie.id)
+    return `
+        <div class="movie-card">
+            <img src="${imgApiBase + movie.poster_path}" alt="Movie Poster" class="movie-poster">
+            <div class="movie-details">
+                <p class="movie-title">${movie.title} <span>⭐ ${Math.round(movie.vote_average * 10) / 10}</span></p>
+                <div class="movie-meta">
+                    <p class="movie-runtime">${movie.runtime} mins</p>
+                    <div class="sub-message">
+                        <img src="img/plus-btn.png" alt="A plus button" class="sub-message-icon"><p class="sub-message-text">Watchlist</p>
+                    </div>
+                </div>
+                <p class="movie-overview">${movie.overview}</p>
+            </div>
+        </div>
+    `
+}
+
+// <p class="movie-genre">${movie.genres.map(genre => genre.name).join(', ')}</p>
+
+async function retrieveMovieDetails(movieId) {
+    const response = await fetch(`${movieDetailsApiBase}${movieId}?language=en-US`, options)
+    const data = await response.json()
+    return data
+}
+
+// function retrieveMovieRuntime(movieId) {
+// }
+
+// function retrieveMovieGenres(movieId) {
+// }
