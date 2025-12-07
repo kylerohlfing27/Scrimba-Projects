@@ -25,6 +25,11 @@ myWatchlistBtn.addEventListener('click', function() {
     window.location.href = 'watchlist.html'
 })
 
+searchInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        searchFn()
+    }
+})
 searchBtn.addEventListener('click', searchFn)
 
 
@@ -35,9 +40,13 @@ async function searchFn() {
     const response = await fetch(`${apiBase}query=${encodeURIComponent(query)}${additionalParams}`, options)
     const data = await response.json()
 
-    console.log(data.results)
+    let movieDetailsArr = []
+    for (let movie of data.results) {
+        let movieDetails = await retrieveMovieDetails(movie.id)
+        movieDetailsArr.push(movieDetails)
+    }
 
-    renderMovies(data.results)
+    renderMovies(movieDetailsArr)
 }
 
 function renderMovies(movies) {
@@ -51,14 +60,17 @@ function renderMovies(movies) {
 }
 
 function generateMovieCard(movie) {
-    // let movieDetails = retrieveMovieDetails(movie.id)
-    // console.log(movieDetails)
     if(!movie.overview) {
         movie.overview = "No overview available."
     }
-    // let movieRuntime = retrieveMovieRuntime(movie.id)
-    // movie.runtime = movieRuntime ? movieRuntime : "N/A"
-    // let movieGenres = retrieveMovieGenres(movie.id)
+    if(!movie.runtime) {
+        movie.runtime = "N/A"
+    }
+    let genreNames = "N/A"
+    if(movie.genres && movie.genres.length > 0) {
+        genreNames = movie.genres.map(genre => genre.name).join(', ')
+    }
+
     return `
         <div class="movie-card">
             <img src="${imgApiBase + movie.poster_path}" alt="Movie Poster" class="movie-poster">
@@ -66,6 +78,7 @@ function generateMovieCard(movie) {
                 <p class="movie-title">${movie.title} <span>⭐ ${Math.round(movie.vote_average * 10) / 10}</span></p>
                 <div class="movie-meta">
                     <p class="movie-runtime">${movie.runtime} mins</p>
+                    <p class="movie-genre">${genreNames}</p>
                     <div class="sub-message">
                         <img src="img/plus-btn.png" alt="A plus button" class="sub-message-icon"><p class="sub-message-text">Watchlist</p>
                     </div>
@@ -76,16 +89,8 @@ function generateMovieCard(movie) {
     `
 }
 
-// <p class="movie-genre">${movie.genres.map(genre => genre.name).join(', ')}</p>
-
 async function retrieveMovieDetails(movieId) {
     const response = await fetch(`${movieDetailsApiBase}${movieId}?language=en-US`, options)
     const data = await response.json()
     return data
 }
-
-// function retrieveMovieRuntime(movieId) {
-// }
-
-// function retrieveMovieGenres(movieId) {
-// }

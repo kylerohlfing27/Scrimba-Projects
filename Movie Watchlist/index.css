@@ -120,8 +120,8 @@ header button {
     color: #787878;
 }
 
-.watchlist-landing-message p {
-    margin-bottom: 15px;
+#add-movies-btn {
+    margin-top: 15px;
 }
 
 .sub-message {
