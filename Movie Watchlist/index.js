@@ -7,6 +7,7 @@ const searchInput = document.getElementById('search-input')
 const searchBtn = document.getElementById('search-btn')
 const moviesContainer = document.getElementById('movies-container')
 const landingMessage = document.getElementById('landing-message')
+const loader = document.getElementById('loader')
 
 const apiBase = 'https://api.themoviedb.org/3/search/movie?'
 const readAccessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Y2RhZTM3NWI1YjEyODMzMTJlYmZlZDg4NzllZTEwMSIsIm5iZiI6MTc2NTE0MzgzNC4zNiwic3ViIjoiNjkzNWY1MWE5ZDE4YTM2NTczMTdiM2M1Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.Vs_ugUgG7TcIve79ZW4uTSnQTXpso_IY7xKC4U1txZQ`
@@ -34,6 +35,7 @@ searchBtn.addEventListener('click', searchFn)
 
 
 async function searchFn() {
+    moviesContainer.innerHTML = '<span class="loader" id="loader"></span>'
     const query = searchInput.value.trim()
     if (!query) return
 
