@@ -29,6 +29,15 @@ body {
     display: none;
 }
 
+.btn {
+    border: none;
+    background: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
 /* LOADER */
 
 .loader {

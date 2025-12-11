@@ -59,9 +59,17 @@ function renderMovies(movies) {
     let moviesContainerHTML = movies.map(movie => generateMovieCard(movie)).join('')
 
     moviesContainer.innerHTML = moviesContainerHTML
+    let allWatchlistButtons = document.querySelectorAll(".watchlist-btn")
+    allWatchlistButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            console.log(e.target.parentElement.dataset.movieId)
+            const id = e.target.parentElement.dataset.movieId
+            addToWatchlist(id)
+        })
+    })
 }
 
-function generateMovieCard(movie) {
+export function generateMovieCard(movie) {
     if(!movie.overview) {
         movie.overview = "No overview available."
     }
@@ -81,9 +89,9 @@ function generateMovieCard(movie) {
                 <div class="movie-meta">
                     <p class="movie-runtime">${movie.runtime} mins</p>
                     <p class="movie-genre">${genreNames}</p>
-                    <div class="sub-message">
+                    <button class="sub-message btn watchlist-btn" data-movie-id="${movie.id}">
                         <img src="img/plus-btn.png" alt="A plus button" class="sub-message-icon"><p class="sub-message-text">Watchlist</p>
-                    </div>
+                    </button>
                 </div>
                 <p class="movie-overview">${movie.overview}</p>
             </div>
@@ -91,8 +99,19 @@ function generateMovieCard(movie) {
     `
 }
 
-async function retrieveMovieDetails(movieId) {
+export async function retrieveMovieDetails(movieId) {
     const response = await fetch(`${movieDetailsApiBase}${movieId}?language=en-US`, options)
     const data = await response.json()
     return data
+}
+
+function addToWatchlist(movieId) {
+    let watchlist = JSON.parse(localStorage.getItem('watchlist')) || []
+    if (!watchlist.includes(movieId)) {
+        watchlist.push(movieId)
+        localStorage.setItem('watchlist', JSON.stringify(watchlist))
+        alert('Movie added to your watchlist!')
+    } else {
+        alert('This movie is already in your watchlist.')
+    }
 }
