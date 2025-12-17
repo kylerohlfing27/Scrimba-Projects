@@ -19,7 +19,7 @@ const options = {
     accept: 'application/json',
     Authorization: `Bearer ${readAccessToken}`
   }
-};
+}
 const additionalParams = '&language=en-US&page=1&include_adult=false'
 
 myWatchlistBtn.addEventListener('click', function() {
@@ -59,6 +59,9 @@ function renderMovies(movies) {
     let moviesContainerHTML = movies.map(movie => generateMovieCard(movie)).join('')
 
     moviesContainer.innerHTML = moviesContainerHTML
+
+    // Add event listeners to watchlist buttons
+    // NEED TO ADD THIS TO RENDER WATCHLIST FUNCTION AS WELL
     let allWatchlistButtons = document.querySelectorAll(".watchlist-btn")
     allWatchlistButtons.forEach(button => {
         button.addEventListener("click", (e) => {
@@ -69,7 +72,7 @@ function renderMovies(movies) {
     })
 }
 
-export function generateMovieCard(movie) {
+function generateMovieCard(movie) {
     if(!movie.overview) {
         movie.overview = "No overview available."
     }
@@ -99,7 +102,7 @@ export function generateMovieCard(movie) {
     `
 }
 
-export async function retrieveMovieDetails(movieId) {
+async function retrieveMovieDetails(movieId) {
     const response = await fetch(`${movieDetailsApiBase}${movieId}?language=en-US`, options)
     const data = await response.json()
     return data
