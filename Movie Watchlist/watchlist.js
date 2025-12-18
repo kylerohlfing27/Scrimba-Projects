@@ -43,6 +43,15 @@ async function renderWatchlist() {
                 removeFromWatchlist(movieId)
             })
         })
+    } else {
+        document.getElementById('movies-container').innerHTML = `
+            <div class="watchlist-landing-message">
+                <p class="light-color">Your watchlist is looking a little empty...</p>
+                <div class="sub-message" id="add-movies-btn">
+                    <img src="img/plus-btn.png" alt="A plus button" class="sub-message-icon"><p class="sub-message-text">Let's add some movies!</p>
+                </div>
+            </div>
+            `
     }
 }
 
@@ -84,16 +93,14 @@ async function retrieveMovieDetails(movieId) {
 
 function removeFromWatchlist(movieId) {
     console.log("Removing movie ID:", movieId)
-    // let watchlist = JSON.parse(localStorage.getItem('watchlist')) || []
-    // const index = watchlist.indexOf(movieId)
-    // // if (index > -1) {
-    // //     watchlist.splice(index, 1)
-    // //     localStorage.setItem('watchlist', JSON.stringify(watchlist))
-    // //     alert('Movie removed from your watchlist!')
-    // //     renderWatchlist()
-    // // }
-
-    // ^ I don't think this is working
+    let watchlist = JSON.parse(localStorage.getItem('watchlist')) || []
+    const index = watchlist.indexOf(movieId)
+    if (index > -1) {
+        watchlist.splice(index, 1)
+        localStorage.setItem('watchlist', JSON.stringify(watchlist))
+        alert('Movie removed from your watchlist!')
+        renderWatchlist()
+    }
 }
 
 renderWatchlist()

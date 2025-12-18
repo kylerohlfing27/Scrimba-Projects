@@ -61,12 +61,10 @@ function renderMovies(movies) {
     moviesContainer.innerHTML = moviesContainerHTML
 
     // Add event listeners to watchlist buttons
-    // NEED TO ADD THIS TO RENDER WATCHLIST FUNCTION AS WELL
     let allWatchlistButtons = document.querySelectorAll(".watchlist-btn")
     allWatchlistButtons.forEach(button => {
         button.addEventListener("click", (e) => {
-            console.log(e.target.parentElement.dataset.movieId)
-            const id = e.target.parentElement.dataset.movieId
+            const id = parseInt(e.target.parentElement.dataset.movieId)
             addToWatchlist(id)
         })
     })
