@@ -1,4 +1,4 @@
-/* PollyGlat Translator App */
+/* PollyGlot Translator App */
 /* Kyle Rohlfing */
 /* 1/6/26 */
 
