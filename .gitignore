@@ -1,1 +1,3 @@
 .DS_Store
+Translator/server/.env
+Translator/server/node_modules/
