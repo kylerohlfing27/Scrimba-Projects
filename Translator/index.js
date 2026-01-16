@@ -49,14 +49,29 @@ function renderLanguageSelect() {
 }
 
 async function fetchTranslation(text, language) {
-    const response = await fetch("http://localhost:3001/translate", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ text, language })
-    })
+    //      Node server request
 
-    const data = await response.json()
-    return data.translation
+    // const response = await fetch("http://localhost:3001/translate", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({ text, language })
+    // })
+
+    //     Netlify function request
+    try {
+        const response = await fetch("/.netlify/functions/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ text, language })
+        })
+
+        const data = await response.json()
+        return data.translation
+    } catch (error) {
+        console.error("Translation Error: ", error)
+    }
 }
