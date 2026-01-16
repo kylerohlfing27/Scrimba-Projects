@@ -81,12 +81,13 @@ header {
   flex-direction: column;
   align-items: flex-start;
   width: 110px;
-  
+  height: 135px;
 }
 
 .language-select label {
   margin-bottom: 6px;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .text-area {
@@ -94,16 +95,18 @@ header {
   height: 150px;
   padding: 12px;
   font-size: 16px;
+  font-weight: 600;
   background-color: #EFF0F4;
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
   font-family: inherit;
   margin-bottom: 16px;
+  resize: none;
 }
 
-#translate-button {
-  width: 100%;
+.btn {
+  width: 80%;
   padding: 12px;
   font-size: 18px;
   font-weight: 700;
