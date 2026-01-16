@@ -18,18 +18,20 @@
     </header>
     <main>
       <div class="translator-container">
-        <textarea id="input-text" class="input-text" placeholder="How are you?"></textarea>
+        <p class="interface-text">Text to Translate:</p>
+        <textarea id="input-text" class="text-area" placeholder="How are you?"></textarea>
         <div class="interface">
+          <p class="interface-text">Select Language:</p>
           <div id="language-select" class="language-select">
-            <label><input type="radio" name="language" value="es"/> Spanish</label>
+            <label><input type="radio" name="language" value="es" checked/> Spanish</label>
             <label><input type="radio" name="language" value="fr"/> French</label>
             <label><input type="radio" name="language" value="de"/> German</label>
-            <label><input type="radio" name="language" value="zh"/> Chinese</label>
+            <label><input type="radio" name="language" value="ru"/> Russian</label>
             <label><input type="radio" name="language" value="ja"/> Japanese</label>
           </div>
           <button id="translate-button">Translate</button>
         </div>
-        <textarea id="output-text" class="output-text" placeholder="Translation will appear here..." readonly></textarea>  <!-- Style and hide -->
+        <textarea id="output-text" class="text-area" placeholder="Translation will appear here..." readonly hidden></textarea>  <!-- hide -->
       </div>
     </main>
     <script src="index.js"></script>
