@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopChoice</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <img src="assets/PopChoice_Icon.png" alt="PopChoice Icon" class="logo">
+        <h1 class="title">PopChoice</h1>
+    </header>
+    <main>
+        <div class="movie-form">
+            <div class="input-group">
+                <label for="favorite-movie">Enter your favorite movie:</label>
+                <input type="textarea" id="favorite-movie" class="input-textarea">
+            </div>
+            <div class="input-group">
+                <label for="new-or-classic">Do you prefer something new or something classic?</label>
+                <div class="radio-buttons">
+                    <input type="radio" id="new" name="new-or-classic" value="new">
+                    <label for="new">New</label>
+                    <input type="radio" id="classic" name="new-or-classic" value="classic">
+                    <label for="classic">Classic</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="genre">What genre do you prefer?</label>
+                <input type="textarea" id="genre" class="input-textarea">
+            </div>
+            <button id="submit-btn" class="submit-btn">Get Recommendation</button>
+            <div id="recommendation" class="recommendation">display: none</div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
