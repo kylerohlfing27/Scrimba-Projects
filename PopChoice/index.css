@@ -1,0 +1,86 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000C36;
+    color: #FFFFFF;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+main {
+    font-size: 1.2em;
+    font-family: 'Roboto Slab', Courier, monospace;
+}
+
+.title {
+    font-size: 48px;
+    margin: 10px 0 60px 0;
+    font-family: 'Carter One', Arial, Helvetica, sans-serif;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+.input-textarea {
+    display: block;
+    width: 480px;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    resize: none;
+    background-color: #3B4877;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-textarea:focus {
+    outline: none;
+    border: 2px solid #394b8f;
+}
+
+.radio-buttons {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.submit-btn {
+    background-color: #51E08A;
+    color: #000C36;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: block;
+}
+
+.recommendation {
+    display: none;
+    width: 40%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.movie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#radio-group {
+    width: 500px;
+}

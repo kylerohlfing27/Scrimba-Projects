@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PopChoice</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,23 +18,30 @@
         <div class="movie-form">
             <div class="input-group">
                 <label for="favorite-movie">Enter your favorite movie:</label>
-                <input type="textarea" id="favorite-movie" class="input-textarea">
+                <textarea id="favorite-movie" class="input-textarea"></textarea>
             </div>
-            <div class="input-group">
+            <div class="input-group" id="radio-group">
                 <label for="new-or-classic">Do you prefer something new or something classic?</label>
                 <div class="radio-buttons">
-                    <input type="radio" id="new" name="new-or-classic" value="new">
-                    <label for="new">New</label>
-                    <input type="radio" id="classic" name="new-or-classic" value="classic">
-                    <label for="classic">Classic</label>
+                    <div>
+                        <input type="radio" id="new" name="new-or-classic" value="new">
+                        <label for="new">New</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="classic" name="new-or-classic" value="classic">
+                        <label for="classic">Classic</label>
+                    </div>
                 </div>
             </div>
             <div class="input-group">
                 <label for="genre">What genre do you prefer?</label>
-                <input type="textarea" id="genre" class="input-textarea">
+                <textarea id="genre" class="input-textarea"></textarea>
             </div>
             <button id="submit-btn" class="submit-btn">Get Recommendation</button>
-            <div id="recommendation" class="recommendation">display: none</div>
+        </div>
+        <div id="recommendation" class="recommendation">
+            <h2 id="movie-title"></h2>
+            <p id="movie-description"></p>
         </div>
     </main>
     <script src="index.js"></script>
