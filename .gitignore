@@ -1,3 +1,5 @@
 .DS_Store
 Translator/server/.env
 Translator/server/node_modules/
+PopChoice/server/.env
+PopChoice/server/node_modules/
