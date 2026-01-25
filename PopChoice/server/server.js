@@ -26,6 +26,10 @@ app.post("/generate-movie", async (req, res) => {
         // })
         // ^ This may need to be changed to handle vector database querying instead
 
+        // embed user query and query vector DB for relevant movies
+
+        // generate OpenAI response based on retrieved movies and user query
+
         res.json({
             movieSuggestion: "Movie suggestion functionality to be implemented." //response.output_text
         })
@@ -34,13 +38,6 @@ app.post("/generate-movie", async (req, res) => {
         res.status(500).json({error: "OpenAI Generation Request Failed"})
     }
 
-})
-
-app.post("/embed", async (req, res) => {
-    console.log("-- Embed Request Body: ", req.body)
-    const reqBody = req.body
-    // create embeddings
-    // post to supabase
 })
 
 app.listen(3001, () => {

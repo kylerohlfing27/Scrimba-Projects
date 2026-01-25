@@ -1,5 +1,5 @@
 
-import movies from './content.js'
+// import movies from './content.js'
 
 const favoriteMovieInput = document.getElementById('favorite-movie')
 const movieGenreInput = document.getElementById('genre')
@@ -11,7 +11,7 @@ submitBtn.addEventListener('click', function() {
 
     const selectedReleaseOption = document.querySelector('input[name="new-or-classic"]:checked')
 
-    console.log(movies)
+    // console.log(movies)
 
     
 })
