@@ -28,13 +28,16 @@ async function embedAndStoreMovies() {
             })
 
             return {
-                content: embedString,
+                title: movie.title,
+                releaseyear: movie.releaseYear,
+                content: movie.content,
+                embeddedchunk: embedString,
                 embedding: embeddingResponse.data[0].embedding
             }
         }
     ))
 
-    await supabase.from("embeddings").insert(data)
+    await supabase.from("movies").insert(data)
     console.log("Embedding complete!")
 }
 
