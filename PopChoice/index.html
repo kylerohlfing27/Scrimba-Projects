@@ -15,7 +15,8 @@
         <h1 class="title">PopChoice</h1>
     </header>
     <main>
-        <div class="movie-form">
+        <span id="loader" class="loader"></span>
+        <div id="movie-form" class="movie-form">
             <div class="input-group">
                 <label for="favorite-movie">Enter your favorite movie:</label>
                 <textarea id="favorite-movie" class="input-textarea"></textarea>
@@ -37,11 +38,13 @@
                 <label for="genre">What genre do you prefer?</label>
                 <textarea id="genre" class="input-textarea"></textarea>
             </div>
-            <button id="submit-btn" class="submit-btn">Get Recommendation</button>
+            <button id="submit-btn" class="btn">Get Recommendation</button>
         </div>
         <div id="recommendation" class="recommendation">
             <h2 id="movie-title"></h2>
-            <p id="movie-description"></p>
+            <p id="movie-year"></p>
+            <p id="movie-recommendation"></p>
+            <button id="start-over-btn" class="btn">Start Over</button>
         </div>
     </main>
     <script src="index.js" type="module"></script>

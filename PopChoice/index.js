@@ -2,13 +2,31 @@
 const favoriteMovieInput = document.getElementById('favorite-movie')
 const movieGenreInput = document.getElementById('genre')
 const submitBtn = document.getElementById('submit-btn')
+const startOverBtn = document.getElementById('start-over-btn')
+
+const movieFormContainer = document.getElementById('movie-form')
+const recommendationContainer = document.getElementById('recommendation')
+const movieTitle = document.getElementById('movie-title')
+const movieYear = document.getElementById('movie-year')
+const movieRecommendation = document.getElementById('movie-recommendation')
+
+const loader = document.getElementById('loader')
 
 submitBtn.addEventListener('click', function() {
     const favoriteMovie = favoriteMovieInput.value
     const movieGenre = movieGenreInput.value
     const selectedReleaseOption = document.querySelector('input[name="new-or-classic"]:checked')
+
+    clearInputs()
+    
+    movieFormContainer.style.display = 'none'
+    loader.style.display = 'block'
     
     getMovieRecommendation(favoriteMovie, movieGenre, selectedReleaseOption.value)
+})
+
+startOverBtn.addEventListener('click', function() {
+    renderMovieForm()
 })
 
 async function getMovieRecommendation(favoriteMovie, movieGenre, releaseOption) {
@@ -50,30 +68,35 @@ async function getMovieRecommendation(favoriteMovie, movieGenre, releaseOption) 
             })
         })
 
+        const recommendationData = await movieRecommendation.json()
+
+        renderRecommendation(recommendedMovieTitle, recommendedMovieYear, recommendationData.movieRecommendation)
     } catch (error) {
         console.error("Error fetching movie recommendation: ", error)
     }
     
 }
 
-
 function clearInputs() {
     favoriteMovieInput.value = ''
     movieGenreInput.value = ''
-    selectedReleaseOption.checked = false
+    document.querySelector('input[name="new-or-classic"]:checked').checked = false
 }
 
-function renderRecommendation() {
+function renderRecommendation(title, year, recommendationText) {
+    movieTitle.textContent = title
+    movieYear.textContent = year
+    movieRecommendation.textContent = recommendationText
+
+    loader.style.display = 'none'
+
+    recommendationContainer.style.display = 'block'
+    startOverBtn.style.display = 'block'
 }
 
 function renderMovieForm() {
-    
-}
-
-function renderLoader() {
-
-}
-
-function hideLoader() {
-
+    recommendationContainer.style.display = 'none'
+    movieFormContainer.style.display = 'flex'
+    startOverBtn.style.display = 'none'
+    submitBtn.style.display = 'block'
 }

@@ -4,9 +4,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #000C36;
     color: #FFFFFF;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
 }
 
 header {
@@ -55,7 +52,7 @@ main {
     justify-content: center;
 }
 
-.submit-btn {
+.btn {
     background-color: #51E08A;
     color: #000C36;
     border: none;
@@ -66,6 +63,10 @@ main {
     font-family: Arial, Helvetica, sans-serif;
     margin: auto auto 20px auto;
     display: block;
+}
+
+#start-over-btn {
+    display: none;
 }
 
 .recommendation {
@@ -84,3 +85,25 @@ main {
 #radio-group {
     width: 500px;
 }
+
+/* Loader styles */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: none;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: -72px 0 #FFF inset;
+  }
+  100% {
+    box-shadow: 48px 0 #FFF inset;
+  }
+}
+    
