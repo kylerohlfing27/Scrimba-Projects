@@ -22,7 +22,7 @@ const supabase = createClient(
 
 app.post("/generate-movie", async (req, res) => {
     try{
-        console.log("-- User Query: ", req.body.userQuery)
+        // console.log("-- User Query: ", req.body.userQuery)
         const { favoriteMovie, movieGenre, releaseOption } = req.body.userQuery
 
         const embeddedQuery = await embedQuery(favoriteMovie, movieGenre, releaseOption)
@@ -33,21 +33,40 @@ app.post("/generate-movie", async (req, res) => {
             match_count: 1
         })
 
-        console.log("-- Supabase Query Response: ", data)
+        // console.log("-- Supabase Query Response: ", data)
 
         if (error) {
             throw error
         }
 
         res.json ({
-            movieSuggestion: "Movie suggestion functionality to be implemented." //response.output_text
+            movieTitle: data[0].title,
+            movieReleaseYear: data[0].releaseyear,
+            movieContent: data[0].content
         })
-
-        // let recommendationQueryText = `Based on the user's favorite movie "${favoriteMovie}" and preferred genre "${movieGenre}", as well as the description of the movie - generate a short movie recommendation based on this movie:\n\n`
 
     } catch (error) {
         console.error("Error during movie generation: ", error)
         res.status(500).json({error: "OpenAI Generation Request Failed"})
+    }
+})
+
+app.post("/recommend", async (req, res) => {
+    try {
+        const { recommendationInstructions, movieDetails } = req.body
+
+        const recommendationResponse = await openai.responses.create({
+            model: "gpt-5-mini-2025-08-07",
+            reasoning: { effort: "low" },
+            instructions: recommendationInstructions,
+            input: movieDetails
+        })
+
+        res.json({
+            movieRecommendation: recommendationResponse.output_text
+        })
+    } catch (error) {
+        console.error("Error during OpenAI movie recommendation: ", error)
     }
 })
 
@@ -57,7 +76,7 @@ app.listen(3001, () => {
 
 async function embedQuery(favoriteMovie, movieGenre, releaseOption) {
     let fullQueryText = `Favorite Movie: ${favoriteMovie}\nGenre: ${movieGenre}\nRelease Option: ${releaseOption}`
-    console.log("-- Full Query Text: ", fullQueryText)
+    // console.log("-- Full Query Text: ", fullQueryText)
     try {
         const embeddingResponse = await openai.embeddings.create({
             model: "text-embedding-3-small",

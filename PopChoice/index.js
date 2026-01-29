@@ -2,14 +2,13 @@
 const favoriteMovieInput = document.getElementById('favorite-movie')
 const movieGenreInput = document.getElementById('genre')
 const submitBtn = document.getElementById('submit-btn')
-const selectedReleaseOption = document.querySelector('input[name="new-or-classic"]:checked')
 
 submitBtn.addEventListener('click', function() {
     const favoriteMovie = favoriteMovieInput.value
     const movieGenre = movieGenreInput.value
-    const releaseOption = selectedReleaseOption.value
-
-    getMovieRecommendation(favoriteMovie, movieGenre, releaseOption)
+    const selectedReleaseOption = document.querySelector('input[name="new-or-classic"]:checked')
+    
+    getMovieRecommendation(favoriteMovie, movieGenre, selectedReleaseOption.value)
 })
 
 async function getMovieRecommendation(favoriteMovie, movieGenre, releaseOption) {
@@ -31,11 +30,32 @@ async function getMovieRecommendation(favoriteMovie, movieGenre, releaseOption) 
         const recommendedMovie = await recommendedMovieResponse.json()
 
         console.log("-- Recommended Movie Response: ", recommendedMovie)
+
+        const recommendedMovieTitle = recommendedMovie.movieTitle
+        const recommendedMovieYear = recommendedMovie.movieReleaseYear
+        const recommendedMovieContent = recommendedMovie.movieContent
+
+        const recommendationInstructions = `Based on the user's favorite movie "${favoriteMovie}" and preferred genre "${movieGenre}", as well as the description of the movie - generate a short description on why the user would enjoy the given movie. Make sure the response never exceeds 3 sentences.`
+
+        const recommendationQueryText = `Title: ${recommendedMovieTitle} (${recommendedMovieYear}) Description: ${recommendedMovieContent}`
+
+        const movieRecommendation = await fetch('http://localhost:3001/recommend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                recommendationInstructions: recommendationInstructions,
+                movieDetails: recommendationQueryText
+            })
+        })
+
     } catch (error) {
         console.error("Error fetching movie recommendation: ", error)
     }
     
 }
+
 
 function clearInputs() {
     favoriteMovieInput.value = ''
@@ -44,9 +64,16 @@ function clearInputs() {
 }
 
 function renderRecommendation() {
-    
 }
 
 function renderMovieForm() {
+    
+}
+
+function renderLoader() {
+
+}
+
+function hideLoader() {
 
 }
