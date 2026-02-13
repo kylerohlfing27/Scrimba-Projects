@@ -1,16 +1,24 @@
+import path from 'node:path'
 
 export default function getContentType(filePath) {
-    const ext = filePath.split('.').pop()
-    const types = {
-    ".js": "text/javascript",
-    ".css": "text/css",
-    ".json": "application/json",
-    ".png": "image/png",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".gif": "image/gif",
-    ".svg": "image/svg+xml"
-  }
-  
-  return types[ext.toLowerCase()] || "text/html"
+    const ext = path.extname(filePath).toLowerCase()
+
+    console.log(`${filePath} has extension: ${ext}`)
+
+    switch (ext) {
+        case '.html':
+            return 'text/html'
+        case '.css':
+            return 'text/css'
+        case '.js':
+            return 'text/javascript'
+        case '.png':
+            return 'image/png'
+        case '.jpg':
+            return 'image/jpeg'
+        case '.jpeg':
+            return 'image/jpeg'
+        case '.svg':
+            return 'image/svg+xml'
+    }
 }

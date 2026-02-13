@@ -6,6 +6,8 @@ import serveStatic from './utils/serveStatic.js'
 
 const server = http.createServer(async (req, res) => {
 
+    console.log('Incoming request:', req.method, req.url)
+
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = path.dirname(__filename)
 
@@ -14,9 +16,11 @@ const server = http.createServer(async (req, res) => {
 
     console.log(pathToResource)
 
-    if (req.url === '/' && req.method === 'GET') {
-        await serveStatic(res, pathToResource)
-    }
+    await serveStatic(res, pathToResource)
+
+    // if (req.url === '/' && req.method === 'GET') {
+        
+    // }
 })
 
 server.listen(3000, () => {

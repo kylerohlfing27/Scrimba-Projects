@@ -8,9 +8,13 @@ export default async function serveStatic(res, publicPath) {
     try {
         const data = await fs.readFile(filePath)
         const contentType = getContentType(filePath)
+        console.log(`--- Serving file: ${filePath} with content type: ${contentType}`)
         sendResponse(res, 200, contentType, data)
     } catch (err) {
         console.error('Error reading file:', err)
-        sendResponse(res, 404, 'text/plain', 'Resource Not Found')
+        if(err.code === 'ENOENT') {
+            const errContent = await fs.readFile(path.resolve('public/404.html'))
+            sendResponse(res, 404, 'text/html', errContent)
+        }
     }
 }
