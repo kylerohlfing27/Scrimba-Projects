@@ -16,25 +16,23 @@ async function getCurrentPrice() {
             }
         })
 
-        console.log('Response from /getPrice:', response)
-
         const data = await response.json()
-
-        console.log('Data received from /getPrice:', data)
 
         console.log('Current Gold Price (USD): ', data.price)
 
-        priceDisplay.textContent = data.price
+        priceDisplay.textContent = (data.price).toFixed(2)
         } catch (error) {
             console.error("Error fetching price:", error)
         }
 }
 
 async function getPriceStream() {
-    // const eventSource = new EventSource('/getPrice/live')
+    const eventSource = new EventSource('/getPrice/live')
 
-    // eventSource.onmessage = (event) => {
-    //     const price = JSON.parse(event.data)
-    //     priceDisplay.textContent = price
-    // }
+    eventSource.onmessage = (event) => {
+        const data = JSON.parse(event.data)
+        const roundedPrice = (data.price).toFixed(2)
+        console.log('Received Price Update:', roundedPrice)
+        priceDisplay.textContent = roundedPrice
+    }
 }

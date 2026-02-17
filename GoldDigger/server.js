@@ -1,10 +1,11 @@
 
-import http from 'node:http'
+import http, { get } from 'node:http'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import serveStatic from './utils/serveStatic.js'
 import getCurrentPrice from './utils/getCurrentPrice.js'
 import sendResponse from './utils/sendResponse.js'
+import getMockPrice from './utils/getMockPrice.js'
 
 const server = http.createServer(async (req, res) => {
 
@@ -23,16 +24,18 @@ const server = http.createServer(async (req, res) => {
             const currentPrice = await getCurrentPrice()
             console.log('Current Price:', currentPrice)
             sendResponse(res, 200, 'application/json', JSON.stringify({ price: currentPrice }))
+        } else if(req.url === '/getPrice/live') {
+            res.writeHead(200, {
+                'Content-Type': 'text/event-stream',
+                'Cache-Control': 'no-cache',
+                'Connection': 'keep-alive'
+            })
+            const currentPrice = getCurrentPrice()
+            setInterval( () => {
+                const mockPrice = getMockPrice(currentPrice)
+                res.write(`data: ${JSON.stringify({ price: mockPrice })}\n\n`)
+            }, 3000)
         }
-        // else if(req.url === '/getPrice/live') {
-        //     res.writeHead(200, {
-        //         'Content-Type': 'text/event-stream',
-        //         'Cache-Control': 'no-cache',
-        //         'Connection': 'keep-alive'
-        //     })
-        //     const currentPrice = await getMockPrice()
-        //     res.write(`data: ${JSON.stringify({ price: currentPrice })}\n\n`)
-        // }
     } else {
         await serveStatic(res, pathToResource)
     }
