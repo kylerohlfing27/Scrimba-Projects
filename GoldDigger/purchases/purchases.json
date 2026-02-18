@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2026-02-18T23:11:01.125Z",
+    "purchaseAmount": 1000,
+    "currentPrice": 4125.1,
+    "goldSold": 0.242418365615379
+  },
+  {
+    "timestamp": "2026-02-18T23:11:05.396Z",
+    "purchaseAmount": 1000,
+    "currentPrice": 4125.1,
+    "goldSold": 0.242418365615379
+  },
+  {
+    "timestamp": "2026-02-18T23:11:30.829Z",
+    "purchaseAmount": 1000,
+    "currentPrice": 4689.9,
+    "goldSold": 0.21322416256210155
+  },
+  {
+    "timestamp": "2026-02-18T23:11:57.366Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4781.66,
+    "goldSold": 0.00020913239335293603
+  },
+  {
+    "timestamp": "2026-02-18T23:12:51.786Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4602.76,
+    "goldSold": 0.00021726094777915859
+  },
+  {
+    "timestamp": "2026-02-18T23:12:53.383Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4602.76,
+    "goldSold": 0.00021726094777915859
+  },
+  {
+    "timestamp": "2026-02-18T23:14:20.891Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4044.91,
+    "goldSold": 0.00024722428929197437
+  },
+  {
+    "timestamp": "2026-02-18T23:14:22.071Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4044.91,
+    "goldSold": 0.00024722428929197437
+  },
+  {
+    "timestamp": "2026-02-18T23:14:26.098Z",
+    "purchaseAmount": 1,
+    "currentPrice": 4044.91,
+    "goldSold": 0.00024722428929197437
+  },
+  {
+    "timestamp": "2026-02-18T23:15:06.073Z",
+    "purchaseAmount": 27,
+    "currentPrice": 4987.64,
+    "goldSold": 0.005413381880007378
+  },
+  {
+    "timestamp": "2026-02-18T23:15:11.424Z",
+    "purchaseAmount": 10000,
+    "currentPrice": 4987.64,
+    "goldSold": 2.0049562518545843
+  }
+]

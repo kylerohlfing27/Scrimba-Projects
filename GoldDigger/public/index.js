@@ -1,10 +1,16 @@
 
 const priceDisplay = document.getElementById('price-display')
+const investmentAmountInput = document.getElementById('investment-amount')
+const purchaseButton = document.getElementById('invest-btn')
 
 getCurrentPrice()
 getPriceStream()
 
-
+purchaseButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    const investmentAmount = parseFloat(investmentAmountInput.value)
+    writePurchase(investmentAmount)
+})
 
 async function getCurrentPrice() {
 
@@ -35,4 +41,23 @@ async function getPriceStream() {
         console.log('Received Price Update:', roundedPrice)
         priceDisplay.textContent = roundedPrice
     }
+}
+
+async function writePurchase(investmentAmount) {
+    try {
+        const response = await fetch('/purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: investmentAmount,
+                currentPrice: Number(priceDisplay.textContent)
+            })
+        })
+        const data = await response.json()
+        console.log('Purchase response:', data)
+    } catch(error) {
+        console.error("Error sending purchase request:", error)
+    }    
 }
