@@ -5,3 +5,29 @@ PopChoice/server/.env
 PopChoice/server/node_modules/
 GoldDigger/.env
 GoldDigger/node_modules/
+
+# React Business Card / Vite setup
+# Logs
+react-business-card/logs
+react-business-card/*.log
+react-business-card/npm-debug.log*
+react-business-card/yarn-debug.log*
+react-business-card/yarn-error.log*
+react-business-card/pnpm-debug.log*
+react-business-card/lerna-debug.log*
+
+react-business-card/node_modules
+react-business-card/dist
+react-business-card/dist-ssr
+react-business-card/*.local
+
+# Editor directories and files
+react-business-card/.vscode/*
+react-business-card/!.vscode/extensions.json
+react-business-card/.idea
+react-business-card/.DS_Store
+react-business-card/*.suo
+react-business-card/*.ntvs*
+react-business-card/*.njsproj
+react-business-card/*.sln
+react-business-card/*.sw?
