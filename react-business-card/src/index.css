@@ -4,19 +4,17 @@ body {
   background-color: #23252C;
   color: #fff;
   font-family: "Inter", sans-serif;
-  align-items: center;
 }
 
 .app {
-  /* TEMP */
-  border: 1px solid black;
-  /* TEMP END */
-  width: 35%;
-  height: 90vh;
+  width: 50%;
+  min-width: min-content;
+  min-height: 950px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #1A1B21;
+  border-radius: 0 0 10px 10px;
 }
 
 .profile-pic {
@@ -25,21 +23,22 @@ body {
   border-radius: 10px 10px 0 0;
 }
 
-.about {
+.information {
   padding: 20px;
 }
 
-.about > h1 {
+.information > h1 {
   margin: 0;
 }
 
-.about > p {
+.information > p {
   margin-top: 10px;
   color: #F3BF99;
-}
+} 
 
 .buttons {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
@@ -71,17 +70,53 @@ body {
   color: white;
 }
 
-.about-section {
+.section {
   display: flex;
   flex-direction: column;
-  align-items: start;;
+  align-items: start;
+  padding: 0 10px;
 }
 
-.about-section > h2 {
-  margin: 12px 0 8px 0;
+.section > h2 {
+  margin: 10px 0 10px 0;
 }
 
-.about-section > p {
+.section > p {
   margin: 0;
   font-size: 0.9rem;
+}
+
+.skills-list {
+  display: flex;
+  gap: 5px;
+}
+
+.skills-list > ul {
+  margin: 0;
+  text-align: left;
+}
+
+.footer {
+  background-color: #161619;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.github-icon {
+  width: 30px;
+  margin-right: 5px;
 }
