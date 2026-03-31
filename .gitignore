@@ -31,3 +31,29 @@ react-business-card/*.ntvs*
 react-business-card/*.njsproj
 react-business-card/*.sln
 react-business-card/*.sw?
+
+# Portfolio
+# Logs
+Portfolio/logs
+Portfolio/*.log
+Portfolio/npm-debug.log*
+Portfolio/yarn-debug.log*
+Portfolio/yarn-error.log*
+Portfolio/pnpm-debug.log*
+Portfolio/lerna-debug.log*
+
+Portfolio/node_modules
+Portfolio/dist
+Portfolio/dist-ssr
+Portfolio/*.local
+
+# Editor directories and files
+Portfolio/.vscode/*
+Portfolio/!.vscode/extensions.json
+Portfolio/.idea
+Portfolio/.DS_Store
+Portfolio/*.suo
+Portfolio/*.ntvs*
+Portfolio/*.njsproj
+Portfolio/*.sln
+Portfolio/*.sw?
