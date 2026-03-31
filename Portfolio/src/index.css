@@ -1,9 +1,11 @@
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: Inter,  sans-serif;
   background-color: #030712;
   color: white;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .nav-container {
@@ -29,4 +31,68 @@ body {
 .nav-links {
   text-decoration: none;
   color: white;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 2.5rem;
+}
+
+.hero-name {
+  font-size: 2.5rem;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+.hero-img {
+  width: 280px;
+  height: 100%;
+  margin-right: 100px;
+  margin-left: 50px;
+  box-shadow: 10px 10px 0px 2px #374151;
+}
+
+.hero-description {
+  margin: 0 0 20px 0;
+  max-width: 700px;
+  font-weight: 300;
+  letter-spacing: 0.02rem;
+  font-size: 0.9rem;
+}
+
+.hero-supp-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #a7abaf;
+  margin-left: 1rem;
+  margin: 0.5rem 1rem;
+}
+
+.available {
+  margin: 0;
+}
+
+.location-img {
+  width: 20px;
+  margin-left: 0.1rem;
+}
+
+.available-img {
+  margin-left: 0.45rem;
+}
+
+.social-icons {
+  margin-top: 28px;
+}
+
+.social-icon {
+  width: 27px;
+  margin-right: 1rem;
+}
+
+.social-icon:hover {
+  cursor: pointer;
 }
