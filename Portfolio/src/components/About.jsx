@@ -2,7 +2,7 @@ import aboutImg from "../assets/about/fish.jpeg"
 
 export default function About() {
     return (
-        <section className="about">
+        <section className="about" id="about">
             <p className="section-header">About Me</p>
             <div className="about-container">
                 <img src={aboutImg} alt="About Me Image" className="about-img"/>
