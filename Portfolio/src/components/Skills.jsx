@@ -6,6 +6,7 @@ import gitlab from "../assets/skills/gitlab.png"
 import java from "../assets/skills/java.png"
 import javascript from "../assets/skills/js.png"
 import mongodb from "../assets/skills/mongo.png"
+import postgres from "../assets/skills/postgres.svg"
 import nextJs from "../assets/skills/next-js.png"
 import nodeJs from "../assets/skills/node-js.png"
 import openai from "../assets/skills/openai.png"
@@ -64,8 +65,8 @@ export default function Skills() {
                     OpenAI
                 </div>
                 <div className="skill">
-                    <img src={mongodb} alt="MongoDB" className="skill-img" />
-                    MongoDB
+                    <img src={postgres} alt="PostgreSQL" className="skill-img" />
+                    PostgreSQL
                 </div>
                 <div className="skill">
                     <img src={figma} alt="Figma" className="skill-img" />

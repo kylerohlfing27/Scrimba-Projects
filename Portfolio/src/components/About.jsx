@@ -8,18 +8,18 @@ export default function About() {
                 <img src={aboutImg} alt="About Me Image" className="about-img"/>
                 <div className="about-info">
                     <h2 className="about-title">My Life Story</h2>
-                    <p className="about-paragraph">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-                    <p className="about-paragraph">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-                    <p className="about-paragraph">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                    <p className="about-paragraph">I’m a full-stack software engineer who enjoys building applications that solve real problems and create meaningful impact. I work across the stack with technologies like JavaScript, TypeScript, Python, and modern frameworks to design scalable, user-focused solutions. I’m especially interested in integrating AI into applications to create smarter, more intuitive user experiences. I value clean architecture, thoughtful design, and continuous learning. I’m always looking for opportunities to collaborate, grow, and build products that people find useful.</p>
+                    <p className="about-paragraph">I graduated from the University of Missouri in 2021 with a Bachelor’s degree in Information Technology, emphasizing Computer Science. Through my coursework in Data Structures and Algorithms, Database Systems, Software Engineering, and Object-Oriented Programming, I developed a strong foundation in designing and building software systems.</p>
+                    <p className="about-paragraph">In my free time, I like to spend time with friends, go fishing, snowboard, play both board and video games, and hang out with my cats. I enjoy staying active, unwinding outdoors, and finding time to relax with hobbies that keep me balanced outside of work.</p>
                     <p className="quick-facts">Quick facts about me:</p>
                     <div className="facts-container">
                         <ul className="facts-list">
                             <li className="fact-item">B.S. Information Technology</li>
-                            <li className="fact-item">Fact 2</li>
+                            <li className="fact-item">Hobbies include fishing, snowboarding, and gaming</li>
                         </ul>
                         <ul className="facts-list">
-                            <li className="fact-item">Avid learner</li>
-                            <li className="fact-item">Fact 4</li>
+                            <li className="fact-item">Passionate about building full-stack applications</li>
+                            <li className="fact-item">Avid learner with a continuous growth mindset</li>
                         </ul>
                     </div>
                 </div>
