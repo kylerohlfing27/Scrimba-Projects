@@ -9,7 +9,7 @@ export default function Nav() {
                     <a href="#about" className="nav-links">About</a>
                     <a href="#skills" className="nav-links">Skills</a>
                     <a href="#experience" className="nav-links">Experience</a>
-                    <a href="#projects" className="nav-links">Projects</a>
+                    {/* <a href="#projects" className="nav-links">Projects</a> */}
                     <a href="#contact" className="nav-links">Contact</a>
                 </nav>
             </div>
